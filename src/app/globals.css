@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* =========================
+   RESET
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* =========================
+   FONT VARIABLES
+   ========================= */
+:root {
+  --font-sans: var(--font-aileron);
+  --font-display: var(--font-swear);
+}
+
+/* =========================
+   DESIGN TOKENS
+   ========================= */
+@theme {
+  --ink: #262111;
+
+  --fs-menu: 0.75rem;
+  --lh-menu: 1.6833;
+  --ls-menu: 0em;
+
+  --fs-hero: 7.875rem;
+  --lh-hero: 0.7603;
+  --ls-hero: -0.05em;
+
+  --fs-h1: 4.6875rem;
+  --lh-h1: 0.8786667;
+  --ls-h1: -0.0506667em;
+
+  --fs-h2: 4.725rem;
+  --lh-h2: 0.8716;
+  --ls-h2: -0.05em;
+
+  --fs-p: 1.125rem;
+  --lh-p: 1.44;
+  --ls-p: 0em;
+
+  --mw-text: clamp(278px, 45vw, 595px);
+}
+
+/* =========================
+   BASE
+   ========================= */
+@layer base {
+  html {
+    font-family: var(--font-aileron);
+    color: var(--ink);
+    background: #ffffff;
+  }
+
+  em,
+  i {
+    font-family: var(--font-swear-italic);
+    font-style: normal;
+  }
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+@layer components {
+  .menu-text {
+    font-family: var(--font-aileron);
+    font-size: var(--fs-menu);
+    line-height: var(--lh-menu);
+    letter-spacing: var(--ls-menu);
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-aileron);
+    font-size: var(--fs-p);
+    line-height: var(--lh-p);
+    letter-spacing: var(--ls-p);
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: var(--fs-hero);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+    color: #ffffff;
+    font-weight: 300;
+  }
+
+  .hero-title__roman {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+  }
+
+  .hero-title__italic {
+    font-family: var(--font-swear-italic), ui-serif, Georgia, serif;
+    font-style: italic;
+  }
+
+  .h1-display {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-size: var(--fs-h1);
+    line-height: var(--lh-h1);
+    letter-spacing: var(--ls-h1);
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  .h2-display {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    letter-spacing: var(--ls-h2);
+    color: var(--ink);
+    font-weight: 400;
+  }
+  
+  .h2-display {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    letter-spacing: var(--ls-h2);
+    color: var(--ink);
+    font-weight: 400;
+  }
+  
+  .h3-display {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-size: 36px;
+    line-height: 44px; /* proporcional y limpio */
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .p {
+    font-family: var(--font-aileron);
+    font-size: var(--fs-p);
+    line-height: var(--lh-p);
+    letter-spacing: var(--ls-p);
+    color: var(--ink);
+    font-weight: 400;
+    max-width: var(--mw-text);
+  }
+
+  .process-step {
+    position: relative;
+    max-width: 300px;
+    padding-top: 2.5rem;
+
+    /* control único del desplazamiento */
+    --content-shift-x: 50px;
+  }
+
+  /* wrapper del contenido */
+  .process-step__content {
+    position: relative;
+    .process-step__content {
+      transition: transform 0.8s ease;
+    }
+  }
+
+  /* izquierda: empuja contenido a la derecha */
+  .process-step.is-left .process-step__content {
+    transform: translateX(var(--content-shift-x));
+  }
+
+  /* derecha: empuja contenido a la izquierda */
+  .process-step.is-right .process-step__content {
+    transform: translateX(calc(var(--content-shift-x) * -1));
+  }
+
+  .process-step__title {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-size: 60px;
+    line-height: 0.8;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .process-step__text {
+    font-family: var(--font-aileron), system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(38, 33, 17, 0.7);
+    margin-top: 0.75rem;
+  }
+
+  .process-step__number {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    color: #ccb7c7;
+    pointer-events: none;
+    font-size: 183px;
+    font-weight: 400;
+    line-height: 1;
+    position: absolute;
+    top: -5.5rem;
+  }
+
+  .quote-display {
+    font-family: var(--font-swear), ui-serif, Georgia, serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: -0.025em;
+    text-align: center;
+  }
+
+  .swear-link {
+    position: relative;
+    font-family: var(--font-swear);
+    font-size: 26px;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+  }
+  
+  .swear-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .swear-link:hover::after {
+    transform: scaleX(0.6);
+  }
+}
