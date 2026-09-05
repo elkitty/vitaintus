@@ -9,14 +9,14 @@ type HeroNavProps = {
 const HeroNav = ({ items, logo, cta }: HeroNavProps) => {
   return (
     <nav className="h-[45px] w-full">
-      <div className="flex h-full items-center">
+      <div className="flex h-full items-center justify-between">
         {/* Left (mismo ancho que Right) */}
-        <div className="w-[180px] shrink-0">
+        <div className="md:w-[180px] md:shrink-0">
           <div className="flex items-center justify-start">{logo}</div>
         </div>
 
         {/* Center */}
-        <nav className="menu-text flex flex-1 justify-center gap-8">
+        <nav className="menu-text hidden md:flex flex-1 justify-center gap-8">
           {items.map((item, index) => (
             <a key={index} href={item.href}>
               {item.label}
@@ -25,8 +25,12 @@ const HeroNav = ({ items, logo, cta }: HeroNavProps) => {
         </nav>
 
         {/* Right (mismo ancho que Left) */}
-        <div className="w-[180px] shrink-0">
-          <div className="flex items-center justify-end">{cta}</div>
+        <div className="md:w-[180px] md:shrink-0">
+          <div className="hidden md:flex items-center justify-end">{cta}</div>
+          <div className="flex md:hidden h-10 w-10 flex-col items-center justify-center gap-1.5">
+            <span className="h-[2px] w-6 bg-white" />
+            <span className="h-[2px] w-6 bg-white" />
+          </div>
         </div>
       </div>
     </nav>

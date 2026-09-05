@@ -15,11 +15,11 @@ const navItems = [
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden h-dvh md:h-auto">
       <HeroBackground />
       <HeroStage
         top={
-          <div className="pt-[47px] pb-[47px]">
+          <div className="pt-[3dvh] pb-[3dvh] md:pt-[47px] md:pb-[47px]">
             <HeroNav
               items={navItems}
               logo={
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
         }
         center={
-          <div className="pt-24 pb-42">
+          <div className="md:pt-24 md:pb-42">
             <HeroContent
               subtitle={<p className="hero-subtitle">vitaintus</p>}
               topTitle={

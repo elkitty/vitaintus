@@ -60,7 +60,7 @@ const Process = () => {
           </p>
         </header>
         {/* Steps */}
-        <div className="mt-20 w-[clamp(564px,68vw,980px)] mx-auto">
+        <div className="mt-20 md:w-[clamp(564px,68vw,980px)] mx-auto">
           {steps.map((step) => (
             <ProcessSteps
               key={step.numberOfStep}

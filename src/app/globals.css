@@ -90,12 +90,18 @@ body {
   }
 
   .hero-title {
-    font-size: var(--fs-hero);
+    font-size: 9dvh;
     line-height: var(--lh-hero);
     letter-spacing: var(--ls-hero);
     color: #ffffff;
     font-weight: 300;
   }
+  
+  @media (min-width: 768px) {
+  .hero-title {
+    font-size: var(--fs-hero);
+  }
+}
 
   .hero-title__roman {
     font-family: var(--font-swear), ui-serif, Georgia, serif;
